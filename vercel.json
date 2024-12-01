@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "rootDirectory": "myproject",
+    "builds": [
+      {
+        "src": "myproject/manage.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "myproject/$1"
+      }
+    ]
+  }
+  

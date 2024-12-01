@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login - Django App
+{% endblock %}
+
+{% block content %}
+<h1>Welcome Back, Homie!</h1>
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- This will render the form with <p> tags -->
+
+    <button type="submit">Log In</button>
+</form>
+{% endblock %}

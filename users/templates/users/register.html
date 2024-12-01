@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Register Now</h1>
+<form action="/users/register/" method="post">
+    {% csrf_token %}
+    
+    <!-- Form fields will be rendered by the {{ form }} variable -->
+    {{ form.as_p }}  <!-- Optionally you can use {{ form }} or {{ form.as_p }} for better styling -->
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
