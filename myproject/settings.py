@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'users',
-    'whitenoise',
+    'whitenoise',  # Whitenoise for serving static files in production
 ]
 
 MIDDLEWARE = [
@@ -51,8 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
-      
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # For serving static files
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -120,42 +119,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-MEDIA_URL='media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-
-
-# settings.py
-
-import os
-
-# URL for serving static files (in development)
 STATIC_URL = '/static/'
+
+# Directories to search for static files
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # This is your custom static directory
+]
 
 # The directory where static files will be collected after running collectstatic
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# The directories to search for static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # This is the global static directory (optional)
-]
-
-# Ensures that static files from apps are included
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+# Static files storage system to use in production
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
