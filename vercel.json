@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "rootDirectory": "myproject",
+   
     "builds": [
       {
         "src": "myproject/manage.py",
