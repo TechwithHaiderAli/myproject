@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 # Directories to search for static files
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # This is your custom static directory
+    os.path.join(BASE_DIR,'static')# This is your custom static directory
 ]
 
 # The directory where static files will be collected after running collectstatic
