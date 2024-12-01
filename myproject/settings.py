@@ -135,4 +135,24 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
+# settings.py
+
+import os
+
+# URL for serving static files (in development)
+STATIC_URL = '/static/'
+
+# The directory where static files will be collected after running collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# The directories to search for static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # This is the global static directory (optional)
+]
+
+# Ensures that static files from apps are included
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
